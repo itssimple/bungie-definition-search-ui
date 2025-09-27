@@ -2,7 +2,7 @@ import projectLogo from "../assets/project-logo.png";
 
 export function Home() {
     return (
-        <div>
+        <div class="app place-items-center">
             <div>
                 <img
                     src={projectLogo}
