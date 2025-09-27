@@ -123,7 +123,7 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
         }
 
         fetchData();
-    }, [hash]);
+    }, []);
 
     return (
         <div class="h-[100vh]">
