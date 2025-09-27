@@ -1,12 +1,15 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import projectLogo from "../assets/project-logo.png";
 
-export function Destiny1SearchGUI() {
+export function Destiny1SearchGUI(props: { hash?: string }) {
+    const { hash } = props;
     const [searchDataItems, setSearchDataItems] = useState<any>(null);
 
     const d1SearchEvent = async (e: Event) => {
         const target = e.target as HTMLInputElement;
         const query = target.value;
+
+        props.hash = query;
 
         if (query.length === 0) {
             setErrorMessage(
@@ -16,9 +19,17 @@ export function Destiny1SearchGUI() {
             return;
         }
 
+        await searchForHash(query);
+    };
+
+    const searchForHash = async (hash: string) => {
+        setSearchDataItems(
+            <div className="text-gray-400">Searching for hash {hash}...</div>
+        );
+
         const response = await fetch(
             `https://manifest.report/d1/hash/search?hash=${encodeURIComponent(
-                query
+                hash
             )}&limit=1000`
         );
         const data = await response.json();
@@ -104,6 +115,16 @@ export function Destiny1SearchGUI() {
 
     const d1SearchEventDebounced = debounce(d1SearchEvent, 300);
 
+    useEffect(() => {
+        async function fetchData() {
+            if (hash) {
+                await searchForHash(hash);
+            }
+        }
+
+        fetchData();
+    }, [hash]);
+
     return (
         <div class="h-[100vh]">
             <div>
@@ -114,6 +135,7 @@ export function Destiny1SearchGUI() {
                     class="w-full h-full bg-gray-900/50 text-gray-200 p-4 rounded-md"
                     placeholder="Search Definitions..."
                     onKeyUp={d1SearchEventDebounced}
+                    value={hash}
                 />
                 <img
                     src={projectLogo}

@@ -8,8 +8,8 @@ export function App() {
     return (
         <Router>
             <Route path="/" component={Home} />
-            <Route path="/destiny1/" component={Destiny1SearchGUI} />
-            <Route path="/destiny2/" component={Destiny2SearchGUI} />
+            <Route path="/destiny1/:hash?" component={Destiny1SearchGUI} />
+            <Route path="/destiny2/:hash?" component={Destiny2SearchGUI} />
             <Route default component={Home} />
         </Router>
     );
