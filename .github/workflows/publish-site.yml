@@ -1,0 +1,34 @@
+name: Deploy to GitHub Pages
+
+on:
+    push:
+        branches:
+            - main
+
+concurrency:
+    group: "bungie-definition-search-ui"
+    cancel-in-progress: false
+
+jobs:
+    deploy:
+        name: Deploy to GitHub Pages
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 20.18.0
+
+            - name: Install dependencies
+              run: |
+                  npm install
+                  npm run deploy
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v3
+              if: ${{ github.ref == 'refs/heads/main' }}
+              with:
+                  github_token: ${{ github.token }}
+                  publish_dir: ./dist
+                  cname: data.manifest.report

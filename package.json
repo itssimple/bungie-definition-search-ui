@@ -1,0 +1,26 @@
+{
+    "name": "manifest-report-data-ui",
+    "version": "1.0.0",
+    "description": "A small UI to search and look at Destiny definition items",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "deploy": "tsc -b && vite build && cp ./dist/index.html ./dist/404.html",
+        "preview": "vite preview"
+    },
+    "author": "NoLifeKing85#2914 / itssimple (GitHub)",
+    "license": "MIT",
+    "dependencies": {
+        "@preact/signals": "^2.0.4",
+        "@tailwindcss/vite": "^4.1.7",
+        "preact": "^10.26.5",
+        "preact-router": "^4.1.2",
+        "tailwindcss": "^4.1.7"
+    },
+    "devDependencies": {
+        "@preact/preset-vite": "^2.10.1",
+        "typescript": "~5.8.3",
+        "vite": "^6.3.5"
+    }
+}
