@@ -24,58 +24,88 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
 
     const searchForHash = async (hash: string) => {
         setSearchDataItems(
-            <div className="text-gray-400">Searching for hash {hash}...</div>
+            <div className="text-gray-400">Searching for {hash}...</div>
         );
 
-        const response = await fetch(
+        const hashResponse = await fetch(
             `https://manifest.report/d1/hash/search?hash=${encodeURIComponent(
                 hash
             )}&limit=1000`
         );
-        const data = await response.json();
-        console.log("Response:", data);
+        const hashData = await hashResponse.json();
+        console.log("Hash Response:", hashData);
 
-        if (response.status !== 200) {
-            switch (response.status) {
+        const nameResponse = await fetch(
+            `https://manifest.report/d1/name/search?name=${encodeURIComponent(
+                hash
+            )}&limit=1000`
+        );
+        const nameData = await nameResponse.json();
+        console.log("Name Response:", nameData);
+
+        let hashFound = true;
+        let nameFound = true;
+
+        if (hashResponse.status !== 200) {
+            switch (hashResponse.status) {
                 case 400:
-                    setErrorMessage(
-                        "Bad Request",
-                        <>
-                            "The request was invalid. Please check your query
-                            and try again.
-                            <br />
-                            {data.errors["hash"] &&
-                                data.errors["hash"].join(", ")}
-                        </>
-                    );
+                    hashFound = false;
                     break;
                 case 404:
-                    setErrorMessage(
-                        "Not Found",
-                        "The requested hash was not found."
-                    );
+                    hashFound = false;
                     break;
-                default:
-                    setErrorMessage(
-                        "Error",
-                        `An error occurred: ${data.message || "Unknown error"}`
-                    );
             }
-            return;
+        }
+
+        if (nameResponse.status !== 200) {
+            switch (nameResponse.status) {
+                case 400:
+                    nameFound = false;
+                    break;
+                case 404:
+                    nameFound = false;
+                    break;
+            }
         }
 
         setSearchDataItems(null);
-        if (data.data.length === 0) {
+        if (
+            hashFound &&
+            hashData.data.length === 0 &&
+            nameFound &&
+            nameData.data.length === 0
+        ) {
             setSearchDataItems(<p>No results found.</p>);
             return;
         }
 
+        let combinedData: any[] = [];
+        if (hashFound) combinedData = [...hashData.data];
+        if (nameFound && hashFound)
+            combinedData = [
+                ...combinedData,
+                ...nameData.data.filter(
+                    (nameItem: any) =>
+                        !hashData.data.some(
+                            (hashItem: any) => hashItem.hash === nameItem.hash
+                        )
+                ),
+            ];
+        else if (nameFound) combinedData = [...nameData.data];
+
+        console.log("Combined Data:", combinedData);
+
         setSearchDataItems(
-            <div>
-                {data.data.map((item: any) =>
-                    destinyItem(item.hash, item.definition, item)
-                )}
-            </div>
+            <>
+                <div className="mb-4 text-gray-400">
+                    <em>Found {combinedData.length} results</em>
+                </div>
+                <div>
+                    {combinedData.map((item: any) =>
+                        destinyItem(item.hash, item.definition, item)
+                    )}
+                </div>
+            </>
         );
     };
 
@@ -133,7 +163,7 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
                     id="search-box"
                     name="search-box"
                     class="w-full h-full bg-gray-900/50 text-gray-200 p-4 rounded-md"
-                    placeholder="Search Definitions..."
+                    placeholder="Search Destiny 1 Definitions..."
                     onKeyUp={d1SearchEventDebounced}
                     value={hash}
                 />
