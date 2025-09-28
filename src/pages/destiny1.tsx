@@ -11,9 +11,9 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
 
         props.hash = query;
 
-        if (query.length === 0) {
+        if (query.length < 3) {
             setErrorMessage(
-                "The query needs to be more than zero characters",
+                "The query needs to be at least three characters",
                 "Please enter a search query."
             );
             return;
@@ -164,7 +164,8 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
                     name="search-box"
                     class="w-full h-full bg-gray-900/50 text-gray-200 p-4 rounded-md"
                     placeholder="Search Destiny 1 Definitions..."
-                    onKeyUp={d1SearchEventDebounced}
+                    onSearch={d1SearchEventDebounced}
+                    incremental={true}
                     value={hash}
                 />
                 <img

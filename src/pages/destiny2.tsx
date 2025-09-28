@@ -11,9 +11,9 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
 
         props.hash = query;
 
-        if (query.length === 0) {
+        if (query.length < 3) {
             setErrorMessage(
-                "The query needs to be more than zero characters",
+                "The query needs to be at least three characters",
                 "Please enter a search query."
             );
             return;
@@ -24,7 +24,9 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
 
     const searchForHash = async (hash: string) => {
         setSearchDataItems(
-            <div className="text-gray-400">Searching for {hash}...</div>
+            <div className="text-gray-400">
+                Searching for the hash {hash}...
+            </div>
         );
 
         const hashResponse = await fetch(
@@ -34,6 +36,12 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
         );
         const hashData = await hashResponse.json();
         console.log("Hash Response:", hashData);
+
+        setSearchDataItems(
+            <div className="text-gray-400">
+                Searching for definitions with the name {hash}...
+            </div>
+        );
 
         const nameResponse = await fetch(
             `https://manifest.report/search/name?name=${encodeURIComponent(
@@ -164,7 +172,8 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
                     name="search-box"
                     class="w-full h-full bg-gray-900/50 text-gray-200 p-4 rounded-md"
                     placeholder="Search Destiny 2 Definitions..."
-                    onKeyUp={d2SearchEventDebounced}
+                    onSearch={d2SearchEventDebounced}
+                    incremental={true}
                     value={hash}
                 />
                 <img
