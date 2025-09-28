@@ -172,8 +172,7 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
                     name="search-box"
                     class="w-full h-full bg-gray-900/50 text-gray-200 p-4 rounded-md"
                     placeholder="Search Destiny 2 Definitions..."
-                    onSearch={d2SearchEventDebounced}
-                    incremental={true}
+                    onKeyUp={d2SearchEventDebounced}
                     value={hash}
                 />
                 <img

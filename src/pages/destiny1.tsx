@@ -164,8 +164,7 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
                     name="search-box"
                     class="w-full h-full bg-gray-900/50 text-gray-200 p-4 rounded-md"
                     placeholder="Search Destiny 1 Definitions..."
-                    onSearch={d1SearchEventDebounced}
-                    incremental={true}
+                    onKeyUp={d1SearchEventDebounced}
                     value={hash}
                 />
                 <img
