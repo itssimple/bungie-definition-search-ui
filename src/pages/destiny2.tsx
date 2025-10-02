@@ -1,6 +1,14 @@
 import { useEffect, useState } from "preact/hooks";
 import projectLogo from "../assets/project-logo.png";
 
+type Destiny2ResponseItem = {
+    definition: string;
+    hash: string;
+    displayName: string | null;
+    displayIcon: string | null;
+    data: any;
+};
+
 export function Destiny2SearchGUI(props: { hash?: string }) {
     const { hash } = props;
     const [searchDataItems, setSearchDataItems] = useState<any>(null);
@@ -101,7 +109,26 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
             ];
         else if (nameFound) combinedData = [...nameData.data];
 
-        console.log("Combined Data:", combinedData);
+        const groupedByDefinition = combinedData.reduce(
+            (
+                acc: { [key: string]: Destiny2ResponseItem[] },
+                item: Destiny2ResponseItem
+            ) => {
+                if (!acc[item.definition]) {
+                    acc[item.definition] = [];
+                }
+                acc[item.definition].push(item);
+                return acc;
+            },
+            {}
+        );
+
+        // Sort the grouped definitions alphabetically
+        const sortedDefinitions = Object.keys(groupedByDefinition).sort();
+        const sortedGroupedByDefinition: Record<string, any[]> = {};
+        for (const def of sortedDefinitions) {
+            sortedGroupedByDefinition[def] = groupedByDefinition[def];
+        }
 
         setSearchDataItems(
             <>
@@ -109,21 +136,54 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
                     <em>Found {combinedData.length} results</em>
                 </div>
                 <div>
-                    {combinedData.map((item: any) =>
-                        destinyItem(item.hash, item.definition, item)
-                    )}
+                    <>
+                        {Object.entries(sortedGroupedByDefinition).map(
+                            ([def, items]) => (
+                                <div key={def}>
+                                    <h3 className="text-xl font-bold">{def}</h3>
+                                    <div class="flex flex-wrap gap-2 mb-4 w-full">
+                                        {items.map((item) =>
+                                            destinyItem(item.hash, item)
+                                        )}
+                                    </div>
+                                </div>
+                            )
+                        )}
+                    </>
                 </div>
             </>
         );
     };
 
-    const destinyItem = (hash: string, definition: string, data: any) => {
+    const destinyItem = (hash: string, data: Destiny2ResponseItem) => {
         return (
-            <div className="mb-4 p-4 bg-gray-800 rounded-md">
-                <h2 className="text-2xl font-bold mb-2">
-                    Definition: {definition} (Hash: {hash})
-                </h2>
-                <pre className="overflow-x-auto">
+            <div className="gap-4 p-4 bg-gray-800 rounded-md xl:min-w-[24vw] xl:max-w-[24vw] lg:min-w-[31vw] lg:max-w-[31vw] sm:min-w-[46vw] sm:max-w-[46vw] max-w-[93vw] min-w-[93vw]">
+                <div className="font-bold mb-2 align-middle flex items-center">
+                    <object
+                        data={`https://storage.manifest.report/manifest-archive/images${
+                            data.displayIcon ?? "/img/misc/missing_icon.png"
+                        }`}
+                        type="image/png"
+                        class="min-w-16 min-h-16 max-h-16 max-w-16 bg-cover bg-no-repeat inline-block mr-4 rounded-sm"
+                    >
+                        <img
+                            class="min-w-16 min-h-16 max-h-16 max-w-16 bg-cover bg-no-repeat inline-block mr-4 rounded-sm"
+                            src="https://storage.manifest.report/manifest-archive/images/img/misc/missing_icon.png"
+                        />
+                    </object>
+                    <div className="mr-4">
+                        {data.displayName ?? (
+                            <span className="text-gray-500 italic">
+                                Unknown Name
+                            </span>
+                        )}
+                        <br />
+                        <small className="text-sm text-gray-400/50">
+                            (Hash: {hash})
+                        </small>
+                    </div>
+                </div>
+                <pre className="overflow-x-auto hidden">
                     <code>{JSON.stringify(data, null, 2)}</code>
                 </pre>
             </div>
