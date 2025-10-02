@@ -161,14 +161,14 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
                 <div className="font-bold mb-2 align-middle flex items-center">
                     <object
                         data={`https://storage.manifest.report/manifest-archive/images${
-                            data.displayIcon ?? "/img/misc/missing_icon.png"
+                            data.displayIcon ?? "/img/misc/missing_icon_d2.png"
                         }`}
                         type="image/png"
                         class="min-w-16 min-h-16 max-h-16 max-w-16 bg-cover bg-no-repeat inline-block mr-4 rounded-sm"
                     >
                         <img
                             class="min-w-16 min-h-16 max-h-16 max-w-16 bg-cover bg-no-repeat inline-block mr-4 rounded-sm"
-                            src="https://storage.manifest.report/manifest-archive/images/img/misc/missing_icon.png"
+                            src="https://storage.manifest.report/manifest-archive/images/img/misc/missing_icon_d2.png"
                         />
                     </object>
                     <div className="mr-4">
