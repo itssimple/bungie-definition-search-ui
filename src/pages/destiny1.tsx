@@ -160,7 +160,14 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
 
     const destinyItem = (hash: string, data: Destiny1ResponseItem) => {
         return (
-            <div className="gap-4 p-4 bg-gray-800 rounded-md xl:min-w-[24vw] xl:max-w-[24vw] lg:min-w-[31vw] lg:max-w-[31vw] sm:min-w-[46vw] sm:max-w-[46vw] max-w-[93vw] min-w-[93vw]">
+            <div
+                className="gap-4 p-4 bg-gray-800 rounded-md xl:min-w-[24vw] xl:max-w-[24vw] lg:min-w-[31vw] lg:max-w-[31vw] sm:min-w-[46vw] sm:max-w-[46vw] max-w-[93vw] min-w-[93vw]"
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                    setDrawerOpen(true);
+                    setDrawerData(data);
+                }}
+            >
                 <div className="font-bold mb-2 align-middle flex items-center">
                     <object
                         data={`https://storage.manifest.report/manifest-archive/images${
@@ -175,13 +182,7 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
                         />
                     </object>
                     <div className="mr-4">
-                        <span
-                            style={{ cursor: "pointer" }}
-                            onClick={() => {
-                                setDrawerOpen(true);
-                                setDrawerData(data);
-                            }}
-                        >
+                        <span>
                             {data.displayName ?? (
                                 <span className="text-gray-500 italic">
                                     Unknown Name
