@@ -12,12 +12,19 @@ type Destiny1ResponseItem = {
 export function Destiny1SearchGUI(props: { hash?: string }) {
     const { hash } = props;
     const [searchDataItems, setSearchDataItems] = useState<any>(null);
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [drawerData, setDrawerData] = useState<any>(null);
 
     const d1SearchEvent = async (e: Event) => {
         const target = e.target as HTMLInputElement;
         const query = target.value;
 
         props.hash = query;
+
+        if (!Number.isNaN(Number.parseInt(query))) {
+            await searchForHash(query);
+            return;
+        }
 
         if (query.length < 3) {
             setErrorMessage(
@@ -31,49 +38,53 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
     };
 
     const searchForHash = async (hash: string) => {
-        setSearchDataItems(
-            <div className="text-gray-400">Searching for {hash}...</div>
-        );
+        let hashResponse = null;
+        let hashData = null;
 
-        const hashResponse = await fetch(
-            `https://manifest.report/d1/hash/search?hash=${encodeURIComponent(
-                hash
-            )}&limit=1000`
-        );
-        const hashData = await hashResponse.json();
-        console.log("Hash Response:", hashData);
+        let nameResponse = null;
+        let nameData = null;
 
-        const nameResponse = await fetch(
-            `https://manifest.report/d1/name/search?name=${encodeURIComponent(
-                hash
-            )}&limit=1000`
-        );
-        const nameData = await nameResponse.json();
-        console.log("Name Response:", nameData);
+        if (!Number.isNaN(Number.parseInt(hash))) {
+            setSearchDataItems(
+                <div className="text-gray-400">
+                    Searching for the hash {hash}...
+                </div>
+            );
 
-        let hashFound = true;
-        let nameFound = true;
-
-        if (hashResponse.status !== 200) {
-            switch (hashResponse.status) {
-                case 400:
-                    hashFound = false;
-                    break;
-                case 404:
-                    hashFound = false;
-                    break;
-            }
+            hashResponse = await fetch(
+                `https://manifest.report/d1/hash/search?hash=${encodeURIComponent(
+                    hash
+                )}&limit=1000&includeData=true`
+            );
+            hashData = await hashResponse.json();
+            console.log("Hash Response:", hashData);
         }
 
-        if (nameResponse.status !== 200) {
-            switch (nameResponse.status) {
-                case 400:
-                    nameFound = false;
-                    break;
-                case 404:
-                    nameFound = false;
-                    break;
-            }
+        if (hash.length >= 3) {
+            setSearchDataItems(
+                <div className="text-gray-400">
+                    Searching for definitions with the name {hash}...
+                </div>
+            );
+
+            nameResponse = await fetch(
+                `https://manifest.report/d1/name/search?name=${encodeURIComponent(
+                    hash
+                )}&limit=1000&includeData=true`
+            );
+            nameData = await nameResponse.json();
+            console.log("Name Response:", nameData);
+        }
+
+        let hashFound = false;
+        let nameFound = false;
+
+        if (hashResponse && hashResponse.status === 200) {
+            hashFound = true;
+        }
+
+        if (nameResponse && nameResponse.status === 200) {
+            nameFound = true;
         }
 
         setSearchDataItems(null);
@@ -87,22 +98,19 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
             return;
         }
 
-        let combinedData: Destiny1ResponseItem[] = [];
-        if (hashFound)
-            combinedData = [...(hashData.data as Destiny1ResponseItem[])];
+        let combinedData: any[] = [];
+        if (hashFound) combinedData = [...hashData.data];
         if (nameFound && hashFound)
             combinedData = [
                 ...combinedData,
-                ...(nameData.data as Destiny1ResponseItem[]).filter(
-                    (nameItem: Destiny1ResponseItem) =>
+                ...nameData.data.filter(
+                    (nameItem: any) =>
                         !hashData.data.some(
-                            (hashItem: Destiny1ResponseItem) =>
-                                hashItem.hash === nameItem.hash
+                            (hashItem: any) => hashItem.hash === nameItem.hash
                         )
                 ),
             ];
-        else if (nameFound)
-            combinedData = [...(nameData.data as Destiny1ResponseItem[])];
+        else if (nameFound) combinedData = [...nameData.data];
 
         const groupedByDefinition = combinedData.reduce(
             (
@@ -124,8 +132,6 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
         for (const def of sortedDefinitions) {
             sortedGroupedByDefinition[def] = groupedByDefinition[def];
         }
-
-        console.log("Grouped by Definition:", sortedGroupedByDefinition);
 
         setSearchDataItems(
             <>
@@ -169,11 +175,19 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
                         />
                     </object>
                     <div className="mr-4">
-                        {data.displayName ?? (
-                            <span className="text-gray-500 italic">
-                                Unknown Name
-                            </span>
-                        )}
+                        <span
+                            style={{ cursor: "pointer" }}
+                            onClick={() => {
+                                setDrawerOpen(true);
+                                setDrawerData(data);
+                            }}
+                        >
+                            {data.displayName ?? (
+                                <span className="text-gray-500 italic">
+                                    Unknown Name
+                                </span>
+                            )}
+                        </span>
                         <br />
                         <small className="text-sm text-gray-400/50">
                             (Hash: {hash})
@@ -240,6 +254,42 @@ export function Destiny1SearchGUI(props: { hash?: string }) {
             <div class="p-4" id="destiny-1-search">
                 {searchDataItems}
             </div>
+            {/* Side Drawer */}
+            {
+                <>
+                    <div
+                        className="fixed inset-0 bg-black/25 z-40"
+                        style={{ display: drawerOpen ? "block" : "none" }}
+                        onClick={() => setDrawerOpen(false)}
+                    />
+                    <div
+                        className="fixed top-0 right-0 h-full md:w-[50vw] sm:w-full bg-gray-900 shadow-lg z-50 flex flex-col"
+                        style={{
+                            transition: "all 0.3s",
+                            transform: drawerOpen
+                                ? "translateX(0)"
+                                : "translateX(100%)",
+                        }}
+                    >
+                        <div className="p-4 border-b border-gray-700 flex justify-between items-center">
+                            <span className="font-bold text-lg">Item Data</span>
+                            <button
+                                className="text-gray-400 hover:text-white px-2 py-1 rounded"
+                                onClick={() => setDrawerOpen(false)}
+                            >
+                                Close
+                            </button>
+                        </div>
+                        <div className="p-4 overflow-y-auto flex-1">
+                            <pre className="whitespace-pre-wrap break-all text-sm text-gray-200">
+                                <code>
+                                    {JSON.stringify(drawerData, null, 2)}
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </>
+            }
         </div>
     );
 }
