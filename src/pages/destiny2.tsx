@@ -44,6 +44,9 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
         let nameResponse = null;
         let nameData = null;
 
+        let hashOver1000 = false;
+        let nameOver1000 = false;
+
         if (!Number.isNaN(Number.parseInt(hash))) {
             setSearchDataItems(
                 <div className="text-gray-400">
@@ -126,6 +129,23 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
             {}
         );
 
+        let totalCount = 0;
+
+        // Check if any results were found
+        if (hashFound && hashData.totalCount > 1000) {
+            hashOver1000 = true;
+        }
+        if (nameFound && nameData.totalCount > 1000) {
+            nameOver1000 = true;
+        }
+
+        if (hashData && hashData.totalCount) {
+            totalCount += hashData.totalCount;
+        }
+        if (nameData && nameData.totalCount) {
+            totalCount += nameData.totalCount;
+        }
+
         // Sort the grouped definitions alphabetically
         const sortedDefinitions = Object.keys(groupedByDefinition).sort();
         const sortedGroupedByDefinition: Record<string, any[]> = {};
@@ -136,7 +156,12 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
         setSearchDataItems(
             <>
                 <div className="mb-4 text-gray-400">
-                    <em>Found {combinedData.length} results</em>
+                    <em>
+                        Found {totalCount.toLocaleString()} results
+                        {hashOver1000 || nameOver1000
+                            ? ", some results may be truncated, max 1000 shown per search (hash/name)"
+                            : ""}
+                    </em>
                 </div>
                 <div>
                     <>
@@ -244,10 +269,12 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
                     onKeyUp={d2SearchEventDebounced}
                     value={hash}
                 />
-                <img
-                    src={projectLogo}
-                    class="h-8 w-8 absolute right-2 top-2.5"
-                />
+                <a href="/">
+                    <img
+                        src={projectLogo}
+                        class="h-8 w-8 absolute right-2 top-2.5"
+                    />
+                </a>
             </div>
             <div class="p-4" id="destiny-1-search">
                 {searchDataItems}
