@@ -165,7 +165,7 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                     setDrawerOpen(true);
-                    setDrawerData(data);
+                    setDrawerData(data.data);
                 }}
             >
                 <div className="font-bold mb-2 align-middle flex items-center">
