@@ -1,0 +1,1351 @@
+* {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  letter-spacing: 0.01rem;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: var(--d2-text, #b6bbb7);
+  font-size: 1rem;
+}
+
+.destiny {
+  --d2-header-text: #fff;
+  --d2-alt-header: #fcedd3;
+  --d2-text: #b6bbb7;
+  --d2-background: #12171d;
+  --d2-surface: rgba(255, 255, 255, 0.05);
+  --d2-surface-raised: rgba(24, 30, 37, 0.9);
+  --d2-border: rgba(255, 255, 255, 0.25);
+  --d2-border-faint: rgba(255, 255, 255, 0.12);
+  --d2-hover-overlay: rgba(255, 255, 255, 0.15);
+  --d2-hr: rgba(128, 128, 128, 0.5);
+  --d2-rarity-common: #c2bcb4;
+  --d2-rarity-uncommon: #356f42;
+  --d2-rarity-rare: #5076a2;
+  --d2-rarity-legendary: #522f65;
+  --d2-rarity-exotic: #ceae33;
+  --d2-damage-kinetic: #d5d5d5;
+  --d2-damage-arc: #7aecf3;
+  --d2-damage-solar: #f0631e;
+  --d2-damage-void: #b184c5;
+  --d2-damage-stasis: #4d78be;
+  --d2-damage-strand: #35e366;
+  --d2-accent-green: #5aa56a;
+  --d2-accent-green-hover: #388348;
+  --d2-danger: #c73632;
+  --d2-warning: #eade8b;
+  --d2-xp: #c0e8b4;
+  --d2-quest: #b9af69;
+  --d2-progress-track: rgba(255, 255, 255, 0.15);
+  --d2-progress-fill: #fcfcfc;
+}
+.destiny .spaced-header {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 2rem;
+}
+@media (max-width: 486px) {
+  .destiny .spaced-header {
+    font-size: 1.8rem;
+  }
+}
+.destiny .spaced-header {
+  text-transform: uppercase;
+  letter-spacing: 0.7rem;
+  margin-bottom: 0.5rem;
+  color: var(--d2-alt-header);
+}
+.destiny .header {
+  text-transform: uppercase;
+  color: var(--d2-header-text);
+}
+.destiny .header.subscreen {
+  font-family: "Neue Haas Grotesk Display Pro 75 Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 4rem;
+}
+@media (max-width: 486px) {
+  .destiny .header.subscreen {
+    font-size: 3.3rem;
+  }
+}
+.destiny .header.subscreen {
+  letter-spacing: -0.05rem;
+  font-weight: 800;
+}
+.destiny .header.general {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.2rem;
+}
+@media (max-width: 486px) {
+  .destiny .header.general {
+    font-size: 1rem;
+  }
+}
+.destiny .header.general {
+  letter-spacing: 0.05rem;
+}
+.destiny .header.tooltip {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 2.5rem;
+}
+@media (max-width: 486px) {
+  .destiny .header.tooltip {
+    font-size: 2.3rem;
+  }
+}
+.destiny .header.tooltip {
+  letter-spacing: 0.05rem;
+}
+.destiny .header.tracked-title {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 2.5rem;
+}
+@media (max-width: 486px) {
+  .destiny .header.tracked-title {
+    font-size: 2.3rem;
+  }
+}
+.destiny .header.tracked-title {
+  letter-spacing: 1rem;
+}
+.destiny .hud {
+  color: var(--d2-header-text);
+}
+.destiny .hud.headers {
+  font-family: "Neue Haas Grotesk Display Pro 75 Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+@media (max-width: 486px) {
+  .destiny .hud.headers {
+    font-size: 1.2rem;
+  }
+}
+.destiny .hud.sub-header {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.2rem;
+}
+@media (max-width: 486px) {
+  .destiny .hud.sub-header {
+    font-size: 1.1rem;
+  }
+}
+.destiny .hud.sub-header {
+  letter-spacing: 0.02rem;
+}
+.destiny .hud.description {
+  font-family: "Neue Haas Grotesk Display Pro 56 Roman Italic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.25rem;
+}
+@media (max-width: 486px) {
+  .destiny .hud.description {
+    font-size: 1.1rem;
+  }
+}
+.destiny .hud.description {
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+.destiny .fui {
+  color: var(--d2-header-text);
+  letter-spacing: 0.05rem;
+  font-size: 1.3rem;
+}
+@media (max-width: 486px) {
+  .destiny .fui {
+    font-size: 1.1rem;
+  }
+}
+.destiny .fui {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.destiny .fui.body.fiction {
+  font-family: "Neue Haas Grotesk Display Pro 56 Roman Italic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  letter-spacing: 0.06rem;
+}
+.destiny .fui.sub-title {
+  text-transform: uppercase;
+}
+.destiny .fui.sub-title.bold {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.destiny .fui.numbers.big {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 3rem;
+}
+@media (max-width: 486px) {
+  .destiny .fui.numbers.big {
+    font-size: 2.5rem;
+  }
+}
+.destiny .active-text.button {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.5rem;
+}
+@media (max-width: 486px) {
+  .destiny .active-text.button {
+    font-size: 1.3rem;
+  }
+}
+.destiny .active-text.button {
+  letter-spacing: 0.45rem;
+  text-transform: uppercase;
+}
+.destiny hr {
+  border: 2px solid var(--d2-hr);
+}
+.destiny .checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-right: 1rem;
+  cursor: default;
+  user-select: none;
+}
+.destiny .checkbox.block {
+  display: block;
+}
+.destiny .checkbox label {
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: unset;
+}
+.destiny .checkbox label:hover input[type=checkbox]:not(:disabled) ~ span::before {
+  background-color: var(--d2-accent-green-hover);
+}
+.destiny .checkbox label span {
+  cursor: pointer;
+  line-height: 1rem;
+  vertical-align: middle;
+}
+.destiny .checkbox input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.destiny .checkbox input[type=checkbox] ~ span::before {
+  position: absolute;
+  top: 0.2rem;
+  left: 0;
+  box-sizing: border-box;
+  height: 1rem;
+  width: 1rem;
+  padding: 0.05rem;
+  border: 0.1rem solid var(--d2-accent-green);
+  background-color: transparent;
+  background-clip: content-box;
+  transition: background-color 0.1s ease-in-out;
+  content: " ";
+}
+.destiny .checkbox input[type=checkbox]:checked ~ span::before {
+  background-color: var(--d2-accent-green);
+}
+.destiny .checkbox.leftCheck {
+  padding-right: 1.5rem;
+  padding-left: unset;
+}
+.destiny .checkbox.leftCheck input[type=checkbox] ~ span::before {
+  right: 0 !important;
+  left: unset;
+}
+@media (max-width: 486px) {
+  .destiny .checkbox {
+    padding-left: 2.3rem;
+    font-size: 1.5rem;
+  }
+  .destiny .checkbox label span {
+    line-height: 2rem;
+  }
+  .destiny .checkbox input[type=checkbox] ~ span::before {
+    top: 0;
+    height: 1.8rem;
+    width: 1.8rem;
+    padding: 0.1rem;
+  }
+  .destiny .checkbox.leftCheck {
+    padding-right: 2.3rem;
+  }
+}
+.destiny .radio {
+  display: inline-block;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-right: 1rem;
+  cursor: default;
+  user-select: none;
+  margin-bottom: 0.2rem;
+}
+.destiny .radio.block {
+  display: block;
+}
+.destiny .radio label {
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: unset;
+}
+.destiny .radio label:hover input[type=radio]:not(:disabled) ~ span::before {
+  background-color: var(--d2-accent-green-hover);
+}
+.destiny .radio label span {
+  cursor: pointer;
+  line-height: 1rem;
+  vertical-align: middle;
+}
+.destiny .radio input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.destiny .radio input[type=radio] ~ span::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  height: 1.2rem;
+  width: 1.2rem;
+  padding: 0.1rem;
+  border: 0.1rem solid var(--d2-accent-green);
+  border-radius: 50%;
+  background-color: transparent;
+  background-clip: content-box;
+  transition: background-color 0.1s ease-in-out;
+  content: " ";
+}
+.destiny .radio input[type=radio]:checked ~ span::before {
+  background-color: var(--d2-accent-green);
+}
+.destiny .radio.leftRadio {
+  padding-right: 1.5rem;
+  padding-left: unset;
+}
+.destiny .radio.leftRadio input[type=radio] ~ span::before {
+  right: 0 !important;
+  left: unset;
+}
+@media (max-width: 486px) {
+  .destiny .radio {
+    padding-left: 2.3rem;
+    font-size: 1.5rem;
+  }
+  .destiny .radio label span {
+    line-height: 2rem;
+  }
+  .destiny .radio input[type=radio] ~ span::before {
+    height: 2rem;
+    width: 2rem;
+  }
+  .destiny .radio.leftRadio {
+    padding-right: 2.3rem;
+  }
+}
+.destiny .text-input,
+.destiny .text-area {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--d2-border-faint);
+  border-bottom-color: var(--d2-border);
+  outline: none;
+  transition: background-color 0.12s ease-in-out, border-color 0.12s ease-in-out;
+}
+.destiny .text-input::placeholder,
+.destiny .text-area::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 0.9rem;
+}
+.destiny .text-input:hover:not(:disabled),
+.destiny .text-area:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.destiny .text-input:focus,
+.destiny .text-area:focus {
+  border-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.destiny .text-input:disabled,
+.destiny .text-area:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.destiny .text-input.inline,
+.destiny .text-area.inline {
+  display: inline-block;
+  width: auto;
+}
+.destiny .text-area {
+  min-height: 6rem;
+  resize: vertical;
+}
+.destiny .select {
+  display: inline-block;
+  min-width: 12rem;
+  padding: 0.6rem 2.4rem 0.6rem 0.8rem;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--d2-border);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 0.7rem;
+  transition: background-color 0.12s ease-in-out, border-color 0.12s ease-in-out;
+}
+.destiny .select:hover:not(:disabled), .destiny .select:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+.destiny .select:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.destiny .select option {
+  background-color: #12171d;
+  color: #fff;
+}
+.destiny .select.block {
+  display: block;
+  width: 100%;
+}
+.destiny .toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  user-select: none;
+}
+.destiny .toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.destiny .toggle .toggle-track {
+  position: relative;
+  flex: none;
+  width: 2.6rem;
+  height: 1.3rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--d2-border);
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.destiny .toggle .toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 0.15rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  background-color: rgba(255, 255, 255, 0.65);
+  transition: left 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+.destiny .toggle .toggle-label {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.destiny .toggle:hover input:not(:disabled) ~ .toggle-track {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.destiny .toggle input:checked ~ .toggle-track {
+  background-color: color-mix(in srgb, var(--d2-accent-green) 45%, transparent);
+  border-color: var(--d2-accent-green);
+}
+.destiny .toggle input:checked ~ .toggle-track::after {
+  left: calc(100% - 1rem);
+  background-color: var(--d2-accent-green);
+}
+.destiny .toggle input:disabled ~ .toggle-track,
+.destiny .toggle input:disabled ~ .toggle-label {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.destiny .setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid transparent;
+}
+.destiny .setting-row .setting-name {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+.destiny .setting-row:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.destiny .button {
+  display: inline-block;
+  position: relative;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--d2-border);
+  padding: 0.7rem 2.2rem 0.6rem 2.45rem;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  transition: background-color 0.12s ease-in-out, color 0.12s ease-in-out, border-color 0.12s ease-in-out;
+}
+.destiny .button:hover:not(:disabled):not(.disabled), .destiny .button:focus-visible {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+  outline: none;
+}
+.destiny .button:active:not(:disabled):not(.disabled) {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.destiny .button:disabled, .destiny .button.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.destiny .button.confirm {
+  border-color: color-mix(in srgb, var(--d2-accent-green) 70%, transparent);
+}
+.destiny .button.confirm:hover:not(:disabled):not(.disabled), .destiny .button.confirm:focus-visible {
+  background-color: var(--d2-accent-green);
+  border-color: var(--d2-accent-green);
+  color: #fff;
+}
+.destiny .button.danger {
+  border-color: color-mix(in srgb, var(--d2-danger) 80%, transparent);
+}
+.destiny .button.danger:hover:not(:disabled):not(.disabled), .destiny .button.danger:focus-visible {
+  background-color: var(--d2-danger);
+  border-color: var(--d2-danger);
+  color: #fff;
+}
+.destiny .button.gold {
+  border-color: color-mix(in srgb, var(--d2-rarity-exotic) 80%, transparent);
+  color: var(--d2-alt-header);
+}
+.destiny .button.gold:hover:not(:disabled):not(.disabled), .destiny .button.gold:focus-visible {
+  background-color: var(--d2-rarity-exotic);
+  border-color: var(--d2-rarity-exotic);
+  color: #000;
+}
+.destiny .button.ghost {
+  background-color: transparent;
+  border-color: transparent;
+}
+.destiny .button.ghost:hover:not(:disabled):not(.disabled), .destiny .button.ghost:focus-visible {
+  background-color: var(--d2-hover-overlay);
+  border-color: transparent;
+  color: #fff;
+}
+.destiny .button.small {
+  font-size: 0.8rem;
+  letter-spacing: 0.15rem;
+  padding: 0.45rem 1.1rem 0.4rem 1.25rem;
+}
+.destiny .button.large {
+  font-size: 1.25rem;
+  padding: 0.9rem 3rem 0.8rem 3.25rem;
+}
+.destiny .button.block {
+  display: block;
+  width: 100%;
+}
+.destiny .button.hold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.35);
+  transition: width 0s;
+}
+.destiny .button.hold:active::after {
+  width: 100%;
+  transition: width 1.2s linear;
+}
+.destiny .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.destiny .button-row.center {
+  justify-content: center;
+}
+.destiny .button-row.end {
+  justify-content: flex-end;
+}
+.destiny .key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.7rem;
+  height: 1.7rem;
+  padding: 0 0.4rem;
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #e6e6e6;
+  border-radius: 0.15rem;
+  vertical-align: middle;
+  user-select: none;
+}
+.destiny .key.round {
+  border-radius: 50%;
+  padding: 0;
+  width: 1.7rem;
+}
+.destiny .key.outline {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+.destiny .key-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.destiny .menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.destiny .menu-list .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.1rem;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+}
+.destiny .menu-list .menu-item .menu-item-note {
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  color: var(--d2-text);
+  text-transform: none;
+}
+.destiny .menu-list .menu-item:hover, .destiny .menu-list .menu-item.active {
+  background-color: var(--d2-hover-overlay);
+  border-color: rgba(255, 255, 255, 0.9);
+  color: #fff;
+}
+.destiny .menu-list .menu-item.active {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+.destiny .menu-list .menu-item.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.destiny .nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2rem;
+}
+@media (max-width: 486px) {
+  .destiny .nav-tabs {
+    gap: 1rem;
+  }
+}
+.destiny .nav-tabs .nav-tab {
+  position: relative;
+  padding: 0.3rem 0.15rem;
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.35rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.12s ease-in-out, text-shadow 0.12s ease-in-out;
+}
+@media (max-width: 486px) {
+  .destiny .nav-tabs .nav-tab {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+  }
+}
+.destiny .nav-tabs .nav-tab:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+.destiny .nav-tabs .nav-tab.active {
+  color: #fff;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.55);
+}
+.destiny .nav-tabs .nav-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.35rem;
+  width: 0.5rem;
+  height: 0.2rem;
+  transform: translateX(-50%);
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+.destiny .nav-subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.destiny .nav-subtabs .nav-tab {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  cursor: pointer;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+}
+.destiny .nav-subtabs .nav-tab:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+.destiny .nav-subtabs .nav-tab.active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+.destiny .item-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #333;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  background-size: cover;
+  background-position: center;
+}
+.destiny .item-tile.common {
+  background-image: linear-gradient(160deg, color-mix(in srgb, var(--d2-rarity-common), #fff 12%) 0%, var(--d2-rarity-common) 55%, color-mix(in srgb, var(--d2-rarity-common), #000 18%) 100%);
+}
+.destiny .item-tile.uncommon {
+  background-image: linear-gradient(160deg, color-mix(in srgb, var(--d2-rarity-uncommon), #fff 12%) 0%, var(--d2-rarity-uncommon) 55%, color-mix(in srgb, var(--d2-rarity-uncommon), #000 18%) 100%);
+}
+.destiny .item-tile.rare {
+  background-image: linear-gradient(160deg, color-mix(in srgb, var(--d2-rarity-rare), #fff 12%) 0%, var(--d2-rarity-rare) 55%, color-mix(in srgb, var(--d2-rarity-rare), #000 18%) 100%);
+}
+.destiny .item-tile.legendary {
+  background-image: linear-gradient(160deg, color-mix(in srgb, var(--d2-rarity-legendary), #fff 12%) 0%, var(--d2-rarity-legendary) 55%, color-mix(in srgb, var(--d2-rarity-legendary), #000 18%) 100%);
+}
+.destiny .item-tile.exotic {
+  background-image: linear-gradient(160deg, color-mix(in srgb, var(--d2-rarity-exotic), #fff 12%) 0%, var(--d2-rarity-exotic) 55%, color-mix(in srgb, var(--d2-rarity-exotic), #000 18%) 100%);
+}
+.destiny .item-tile:hover, .destiny .item-tile.selected {
+  border-color: #fff;
+}
+.destiny .item-tile:hover::before, .destiny .item-tile.selected::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.destiny .item-tile.masterwork {
+  border-color: var(--d2-rarity-exotic);
+  box-shadow: inset 0 6px 12px -6px rgba(255, 227, 130, 0.9);
+}
+.destiny .item-tile .item-season {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  font-size: 0.7rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.9);
+}
+.destiny .item-tile .item-quantity {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.05rem 0.25rem;
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.destiny .item-tile .item-power {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1.4rem;
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--d2-warning);
+}
+.destiny .item-tile.large {
+  width: 6rem;
+  height: 6rem;
+}
+.destiny .item-tile.small {
+  width: 3rem;
+  height: 3rem;
+  border-width: 1px;
+}
+.destiny .item-grid {
+  display: inline-grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 0.5rem;
+}
+.destiny .item-grid.wide {
+  grid-template-columns: repeat(9, auto);
+}
+@media (max-width: 768px) {
+  .destiny .item-grid.wide {
+    grid-template-columns: repeat(5, auto);
+  }
+}
+.destiny .engram {
+  display: inline-block;
+  width: 3.2rem;
+  height: 3.2rem;
+  margin: 0.7rem;
+  transform: rotate(45deg);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  vertical-align: middle;
+}
+.destiny .engram.common {
+  background-image: linear-gradient(200deg, color-mix(in srgb, var(--d2-rarity-common), #fff 22%) 0%, var(--d2-rarity-common) 60%, color-mix(in srgb, var(--d2-rarity-common), #000 15%) 100%);
+}
+.destiny .engram.uncommon {
+  background-image: linear-gradient(200deg, color-mix(in srgb, var(--d2-rarity-uncommon), #fff 22%) 0%, var(--d2-rarity-uncommon) 60%, color-mix(in srgb, var(--d2-rarity-uncommon), #000 15%) 100%);
+}
+.destiny .engram.rare {
+  background-image: linear-gradient(200deg, color-mix(in srgb, var(--d2-rarity-rare), #fff 22%) 0%, var(--d2-rarity-rare) 60%, color-mix(in srgb, var(--d2-rarity-rare), #000 15%) 100%);
+}
+.destiny .engram.legendary {
+  background-image: linear-gradient(200deg, color-mix(in srgb, var(--d2-rarity-legendary), #fff 22%) 0%, var(--d2-rarity-legendary) 60%, color-mix(in srgb, var(--d2-rarity-legendary), #000 15%) 100%);
+}
+.destiny .engram.exotic {
+  background-image: linear-gradient(200deg, color-mix(in srgb, var(--d2-rarity-exotic), #fff 22%) 0%, var(--d2-rarity-exotic) 60%, color-mix(in srgb, var(--d2-rarity-exotic), #000 15%) 100%);
+}
+.destiny .engram:hover {
+  border-color: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+}
+.destiny .item-tooltip {
+  width: 22rem;
+  max-width: 100%;
+  background-color: rgba(15, 18, 23, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+.destiny .item-tooltip .tooltip-header {
+  padding: 0.8rem 1rem 0.7rem;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.12));
+  background-color: #555;
+}
+.destiny .item-tooltip .tooltip-header.common {
+  background-color: color-mix(in srgb, var(--d2-rarity-common), #000 35%);
+}
+.destiny .item-tooltip .tooltip-header.uncommon {
+  background-color: var(--d2-rarity-uncommon);
+}
+.destiny .item-tooltip .tooltip-header.rare {
+  background-color: var(--d2-rarity-rare);
+}
+.destiny .item-tooltip .tooltip-header.legendary {
+  background-color: var(--d2-rarity-legendary);
+}
+.destiny .item-tooltip .tooltip-header.exotic {
+  background-color: color-mix(in srgb, var(--d2-rarity-exotic), #000 12%);
+}
+.destiny .item-tooltip .tooltip-header .tooltip-name {
+  font-family: "Neue Haas Grotesk Display Pro 75 Bold", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.destiny .item-tooltip .tooltip-header .tooltip-type {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+.destiny .item-tooltip .tooltip-body {
+  padding: 0.9rem 1rem;
+}
+.destiny .item-tooltip .tooltip-body + .tooltip-body {
+  border-top: 1px solid var(--d2-border-faint);
+  padding-top: 0.8rem;
+}
+.destiny .item-tooltip .tooltip-power {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.destiny .item-tooltip .tooltip-power .power-value {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: var(--d2-warning);
+}
+.destiny .item-tooltip .tooltip-power .power-type {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: var(--d2-text);
+}
+.destiny .item-tooltip .tooltip-perk {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+  color: #eee;
+  font-size: 0.95rem;
+}
+.destiny .item-tooltip .tooltip-perk .perk-icon {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  background-size: cover;
+}
+.destiny .item-tooltip .tooltip-perk .perk-text b {
+  display: block;
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  color: #fff;
+}
+.destiny .item-tooltip .tooltip-perk .perk-text span {
+  font-size: 0.85rem;
+  color: var(--d2-text);
+}
+.destiny .item-tooltip .tooltip-flavor {
+  font-family: "Neue Haas Grotesk Display Pro 56 Roman Italic", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.03rem;
+  color: var(--d2-text);
+}
+.destiny .item-tooltip .tooltip-footer {
+  padding: 0.6rem 1rem;
+  border-top: 1px solid var(--d2-border-faint);
+  background-color: rgba(0, 0, 0, 0.35);
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--d2-text);
+}
+.destiny .progress {
+  position: relative;
+  width: 100%;
+  height: 0.55rem;
+  background-color: var(--d2-progress-track);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.destiny .progress .progress-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background-color: var(--d2-progress-fill);
+  transition: width 0.25s ease-out;
+}
+.destiny .progress.xp {
+  height: 0.3rem;
+  border: none;
+}
+.destiny .progress.xp .progress-fill {
+  background-color: var(--d2-xp);
+}
+.destiny .progress.objective {
+  height: 1.4rem;
+  background-color: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.destiny .progress.objective .progress-fill {
+  background-color: color-mix(in srgb, var(--d2-quest) 85%, transparent);
+}
+.destiny .progress.objective .progress-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.05rem;
+  color: #fff;
+}
+.destiny .progress.arc .progress-fill {
+  background-color: var(--d2-damage-arc);
+}
+.destiny .progress.solar .progress-fill {
+  background-color: var(--d2-damage-solar);
+}
+.destiny .progress.void .progress-fill {
+  background-color: var(--d2-damage-void);
+}
+.destiny .progress.stasis .progress-fill {
+  background-color: var(--d2-damage-stasis);
+}
+.destiny .progress.strand .progress-fill {
+  background-color: var(--d2-damage-strand);
+}
+.destiny .progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--d2-text);
+}
+.destiny .progress-label b {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  color: #fff;
+}
+.destiny .stat-list {
+  display: grid;
+  grid-template-columns: minmax(6rem, max-content) 1fr max-content;
+  gap: 0.45rem 0.8rem;
+  align-items: center;
+}
+.destiny .stat-list .stat-name {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--d2-text);
+}
+.destiny .stat-list .stat-bar {
+  position: relative;
+  height: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+.destiny .stat-list .stat-bar .stat-fill {
+  display: block;
+  height: 100%;
+  background-color: #fcfcfc;
+}
+.destiny .stat-list .stat-bar .stat-delta {
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: var(--d2-accent-green);
+}
+.destiny .stat-list .stat-bar .stat-delta.negative {
+  background-color: var(--d2-danger);
+}
+.destiny .stat-list .stat-value {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.9rem;
+  color: #fff;
+  min-width: 2ch;
+  text-align: right;
+}
+.destiny .card {
+  background-color: rgba(14, 18, 23, 0.75);
+  border: 1px solid var(--d2-border-faint);
+}
+.destiny .card .card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1.1rem 0.7rem;
+  border-bottom: 1px solid var(--d2-border-faint);
+}
+.destiny .card .card-header .card-title {
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.destiny .card .card-header .card-subtitle {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--d2-text);
+}
+.destiny .card .card-body {
+  padding: 1rem 1.1rem;
+  color: var(--d2-text);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.destiny .card .card-footer {
+  padding: 0.7rem 1.1rem;
+  border-top: 1px solid var(--d2-border-faint);
+}
+.destiny .card.selected, .destiny .card:hover.selectable {
+  border-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.destiny .card.accent-exotic {
+  border-left: 3px solid var(--d2-rarity-exotic);
+}
+.destiny .card.accent-legendary {
+  border-left: 3px solid color-mix(in srgb, var(--d2-rarity-legendary), #fff 20%);
+}
+.destiny .card.accent-arc {
+  border-left: 3px solid var(--d2-damage-arc);
+}
+.destiny .card.accent-solar {
+  border-left: 3px solid var(--d2-damage-solar);
+}
+.destiny .card.accent-void {
+  border-left: 3px solid var(--d2-damage-void);
+}
+.destiny .card.accent-stasis {
+  border-left: 3px solid var(--d2-damage-stasis);
+}
+.destiny .card.accent-strand {
+  border-left: 3px solid var(--d2-damage-strand);
+}
+.destiny .dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 100;
+}
+.destiny .dialog-backdrop.inline {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding: 3rem 1rem;
+}
+.destiny .dialog {
+  width: 34rem;
+  max-width: 100%;
+  text-align: center;
+}
+.destiny .dialog .dialog-title {
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.6rem;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+@media (max-width: 486px) {
+  .destiny .dialog .dialog-title {
+    font-size: 1.3rem;
+    letter-spacing: 0.35rem;
+  }
+}
+.destiny .dialog .dialog-body {
+  padding: 1.4rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: #e8e8e8;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.destiny .dialog .dialog-body .dialog-hint {
+  display: block;
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--d2-text);
+}
+.destiny .dialog .dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  flex-wrap: wrap;
+}
+.destiny .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.destiny .table thead th {
+  padding: 0.5rem 0.9rem;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--d2-text);
+  border-bottom: 1px solid var(--d2-border);
+}
+.destiny .table tbody td {
+  padding: 0.6rem 0.9rem;
+  font-size: 0.95rem;
+  color: #e6e6e6;
+  border-bottom: 1px solid var(--d2-border-faint);
+}
+.destiny .table tbody tr {
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: background-color 0.1s ease-in-out;
+}
+.destiny .table tbody tr:hover {
+  background-color: var(--d2-hover-overlay);
+  color: #fff;
+}
+.destiny .table tbody tr.highlight {
+  background-color: color-mix(in srgb, var(--d2-alt-header) 12%, transparent);
+}
+.destiny .table tbody tr.highlight td:first-child {
+  border-left: 2px solid var(--d2-alt-header);
+}
+.destiny .table .num {
+  text-align: right;
+  font-family: "Neue Haas Grotesk Display Pro 65 Medium", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.destiny .text-common {
+  color: var(--d2-rarity-common) !important;
+}
+.destiny .text-uncommon {
+  color: color-mix(in srgb, var(--d2-rarity-uncommon), #fff 18%) !important;
+}
+.destiny .text-rare {
+  color: color-mix(in srgb, var(--d2-rarity-rare), #fff 18%) !important;
+}
+.destiny .text-legendary {
+  color: color-mix(in srgb, var(--d2-rarity-legendary), #fff 30%) !important;
+}
+.destiny .text-exotic {
+  color: var(--d2-rarity-exotic) !important;
+}
+.destiny .text-kinetic {
+  color: var(--d2-damage-kinetic) !important;
+}
+.destiny .text-arc {
+  color: var(--d2-damage-arc) !important;
+}
+.destiny .text-solar {
+  color: var(--d2-damage-solar) !important;
+}
+.destiny .text-void {
+  color: var(--d2-damage-void) !important;
+}
+.destiny .text-stasis {
+  color: color-mix(in srgb, var(--d2-damage-stasis), #fff 15%) !important;
+}
+.destiny .text-strand {
+  color: var(--d2-damage-strand) !important;
+}
+.destiny .text-gold {
+  color: var(--d2-alt-header) !important;
+}
+.destiny .text-success {
+  color: var(--d2-accent-green) !important;
+}
+.destiny .text-danger {
+  color: color-mix(in srgb, var(--d2-danger), #fff 15%) !important;
+}
+.destiny .text-warning {
+  color: var(--d2-warning) !important;
+}
+.destiny .bg-common {
+  background-color: var(--d2-rarity-common) !important;
+}
+.destiny .bg-uncommon {
+  background-color: var(--d2-rarity-uncommon) !important;
+}
+.destiny .bg-rare {
+  background-color: var(--d2-rarity-rare) !important;
+}
+.destiny .bg-legendary {
+  background-color: var(--d2-rarity-legendary) !important;
+}
+.destiny .bg-exotic {
+  background-color: var(--d2-rarity-exotic) !important;
+}
+.destiny .bg-kinetic {
+  background-color: var(--d2-damage-kinetic) !important;
+}
+.destiny .bg-arc {
+  background-color: var(--d2-damage-arc) !important;
+}
+.destiny .bg-solar {
+  background-color: var(--d2-damage-solar) !important;
+}
+.destiny .bg-void {
+  background-color: var(--d2-damage-void) !important;
+}
+.destiny .bg-stasis {
+  background-color: var(--d2-damage-stasis) !important;
+}
+.destiny .bg-strand {
+  background-color: var(--d2-damage-strand) !important;
+}
+.destiny .text-muted {
+  color: var(--d2-text) !important;
+}
+.destiny .uppercase {
+  text-transform: uppercase;
+}
+.destiny .section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Neue Haas Grotesk Display Pro 55 Roman", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.35rem;
+  text-transform: uppercase;
+  color: var(--d2-alt-header);
+}
+.destiny .section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
