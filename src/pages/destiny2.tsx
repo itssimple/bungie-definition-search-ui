@@ -49,7 +49,7 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
 
         if (!Number.isNaN(Number.parseInt(hash))) {
             setSearchDataItems(
-                <div className="text-gray-400">
+                <div className="fui body text-muted">
                     Searching for the hash {hash}...
                 </div>
             );
@@ -65,7 +65,7 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
 
         if (hash.length >= 3) {
             setSearchDataItems(
-                <div className="text-gray-400">
+                <div className="fui body text-muted">
                     Searching for definitions with the name {hash}...
                 </div>
             );
@@ -97,7 +97,9 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
             nameFound &&
             nameData.data.length === 0
         ) {
-            setSearchDataItems(<p>No results found.</p>);
+            setSearchDataItems(
+                <p className="fui body text-muted">No results found.</p>
+            );
             return;
         }
 
@@ -155,20 +157,23 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
 
         setSearchDataItems(
             <>
-                <div className="mb-4 text-gray-400">
-                    <em>
-                        Found {totalCount.toLocaleString()} results
-                        {hashOver1000 || nameOver1000
-                            ? ", some results may be truncated, max 1000 shown per search (hash/name)"
-                            : ""}
-                    </em>
+                <div className="mb-4 fui body fiction text-muted">
+                    Found {totalCount.toLocaleString()} results
+                    {hashOver1000 || nameOver1000
+                        ? ", some results may be truncated, max 1000 shown per search (hash/name)"
+                        : ""}
                 </div>
                 <div>
                     <>
                         {Object.entries(sortedGroupedByDefinition).map(
                             ([def, items]) => (
                                 <div key={def}>
-                                    <h3 className="text-xl font-bold">{def}</h3>
+                                    <div
+                                        className="header tooltip mt-6 mb-3"
+                                        style={{ textTransform: "none" }}
+                                    >
+                                        {def}
+                                    </div>
                                     <div class="flex flex-wrap gap-2 mb-4 w-full">
                                         {items.map((item) =>
                                             destinyItem(item.hash, item)
@@ -186,36 +191,36 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
     const destinyItem = (hash: string, data: Destiny2ResponseItem) => {
         return (
             <div
-                className="gap-4 p-4 bg-gray-800 rounded-md xl:min-w-[24vw] xl:max-w-[24vw] lg:min-w-[31vw] lg:max-w-[31vw] sm:min-w-[46vw] sm:max-w-[46vw] max-w-[93vw] min-w-[93vw]"
+                className="card selectable xl:min-w-[24vw] xl:max-w-[24vw] lg:min-w-[31vw] lg:max-w-[31vw] sm:min-w-[46vw] sm:max-w-[46vw] max-w-[93vw] min-w-[93vw]"
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                     setDrawerOpen(true);
                     setDrawerData(data.data);
                 }}
             >
-                <div className="font-bold mb-2 align-middle flex items-center">
+                <div className="card-body flex items-center">
                     <object
                         data={`https://storage.manifest.report/manifest-archive/images${
                             data.displayIcon ?? "/img/misc/missing_icon_d2.png"
                         }`}
                         type="image/png"
-                        class="min-w-16 min-h-16 max-h-16 max-w-16 bg-cover bg-no-repeat inline-block mr-4 rounded-sm"
+                        class="min-w-16 min-h-16 max-h-16 max-w-16 bg-cover bg-no-repeat inline-block mr-4"
                     >
                         <img
-                            class="min-w-16 min-h-16 max-h-16 max-w-16 bg-cover bg-no-repeat inline-block mr-4 rounded-sm"
+                            class="min-w-16 min-h-16 max-h-16 max-w-16 bg-cover bg-no-repeat inline-block mr-4"
                             src="https://storage.manifest.report/manifest-archive/images/img/misc/missing_icon_d2.png"
                         />
                     </object>
                     <div className="mr-4">
-                        <span>
+                        <span className="fui sub-title bold">
                             {data.displayName ?? (
-                                <span className="text-gray-500 italic">
+                                <span className="text-muted hud description">
                                     Unknown Name
                                 </span>
                             )}
                         </span>
                         <br />
-                        <small className="text-sm text-gray-400/50">
+                        <small className="text-sm text-muted">
                             (Hash: {hash})
                         </small>
                     </div>
@@ -226,9 +231,11 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
 
     const setErrorMessage = (title: string, message: any) => {
         setSearchDataItems(
-            <div className="bg-red-600/50 text-white p-4 rounded-md mb-4">
-                <strong>{title}</strong>
-                <p>{message}</p>
+            <div className="card accent-solar mb-4" style={{ maxWidth: "40rem" }}>
+                <div className="card-header">
+                    <span className="card-title text-danger">{title}</span>
+                </div>
+                <div className="card-body">{message}</div>
             </div>
         );
     };
@@ -258,13 +265,14 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
     }, []);
 
     return (
-        <div class="h-[100vh] relative">
-            <div>
+        <div class="min-h-[100vh] relative">
+            <div class="relative">
                 <input
                     type="search"
                     id="search-box"
                     name="search-box"
-                    class="w-full h-full bg-gray-900/50 text-gray-200 p-4 rounded-md"
+                    class="text-input w-full"
+                    style={{ padding: "1rem", paddingRight: "3.5rem" }}
                     placeholder="Search Destiny 2 Definitions..."
                     onKeyUp={d2SearchEventDebounced}
                     value={hash}
@@ -276,40 +284,49 @@ export function Destiny2SearchGUI(props: { hash?: string }) {
                     />
                 </a>
             </div>
-            <div class="p-4" id="destiny-1-search">
+            <div class="p-4" id="destiny-2-search">
                 {searchDataItems}
             </div>
             {/* Side Drawer */}
             {
                 <>
                     <div
-                        className="fixed inset-0 bg-black/25 z-40"
+                        className="dialog-backdrop"
                         style={{
                             display: drawerOpen ? "block" : "none",
                         }}
                         onClick={() => setDrawerOpen(false)}
                     />
                     <div
-                        className="fixed top-0 right-0 h-full md:w-[50vw] sm:w-full bg-gray-900 shadow-lg z-50 flex flex-col"
+                        className="fixed top-0 right-0 h-full md:w-[50vw] sm:w-full shadow-lg flex flex-col"
                         style={{
+                            zIndex: 101,
                             transition: "all 0.3s",
+                            backgroundColor: "var(--d2-background)",
+                            borderLeft: "0.1rem solid var(--d2-border)",
                             transform: drawerOpen
                                 ? "translateX(0)"
                                 : "translateX(100%)",
                         }}
                     >
-                        <div className="p-4 border-b border-gray-700 flex justify-between items-center">
-                            <span className="font-bold text-lg">Item Data</span>
+                        <div
+                            className="p-4 flex justify-between items-center"
+                            style={{
+                                borderBottom:
+                                    "0.1rem solid var(--d2-border-faint)",
+                            }}
+                        >
+                            <span className="header tooltip">Item Data</span>
                             <button
-                                className="text-gray-400 hover:text-white px-2 py-1 rounded"
+                                className="button small ghost"
                                 onClick={() => setDrawerOpen(false)}
                             >
                                 Close
                             </button>
                         </div>
                         <div className="p-4 overflow-y-auto flex-1">
-                            <pre className="whitespace-pre-wrap break-all text-sm text-gray-200">
-                                <code>
+                            <pre className="whitespace-pre-wrap break-all text-sm">
+                                <code style={{ fontFamily: "monospace" }}>
                                     {JSON.stringify(drawerData, null, 2)}
                                 </code>
                             </pre>

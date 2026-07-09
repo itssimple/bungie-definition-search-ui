@@ -2,32 +2,52 @@ import projectLogo from "../assets/project-logo.png";
 
 export function Home() {
     return (
-        <div class="app place-items-center">
+        <div class="app">
             <div>
                 <img
                     src={projectLogo}
                     class="logo inline-block"
-                    alt="PGCR Viewer logo"
+                    alt="Bungie Definition Search logo"
                 />
-                <h1 class="text-4xl font-bold mb-2 inline-block align-middle ml-4">
-                    Bungie Definition Search
-                </h1>
+                <div class="spaced-header">Bungie Definition Search</div>
             </div>
 
-            <p>This is a simple search UI for Destiny 1/2 Definition Hashes.</p>
-            <p>Select which game you want to search for</p>
-            <div class="flex items-center gap-4 justify-center mt-8">
-                <a
-                    class="bg-gray-900 text-gray-200 p-2 rounded-md text-3xl cursor-pointer hover:bg-gray-800"
-                    href="/destiny1/"
-                >
-                    Destiny 1
+            <p class="fui body mt-4">
+                This is a simple search UI for Destiny 1/2 Definition Hashes.
+            </p>
+            <div class="section-label mt-8 text-left">
+                Select which game you want to search
+            </div>
+            <div class="grid gap-5 mt-6 sm:grid-cols-2 text-left">
+                <a class="card selectable accent-solar" href="/destiny1/">
+                    <div class="card-header">
+                        <span class="card-title">Destiny 1</span>
+                        <span class="card-subtitle">2014 – 2017</span>
+                    </div>
+                    <div class="card-body">
+                        Search the classic-era manifest — items, activities,
+                        vendors and everything in between.
+                    </div>
+                    <div class="card-footer">
+                        <span class="key-prompt">
+                            <span class="key outline">↵</span> Search Destiny 1
+                        </span>
+                    </div>
                 </a>
-                <a
-                    class="bg-gray-900 text-gray-200 p-2 rounded-md text-3xl cursor-pointer hover:bg-gray-800"
-                    href="/destiny2/"
-                >
-                    Destiny 2
+                <a class="card selectable accent-arc" href="/destiny2/">
+                    <div class="card-header">
+                        <span class="card-title">Destiny 2</span>
+                        <span class="card-subtitle">2017 –</span>
+                    </div>
+                    <div class="card-body">
+                        Search the live Destiny 2 manifest, straight from the
+                        latest definition archives.
+                    </div>
+                    <div class="card-footer">
+                        <span class="key-prompt">
+                            <span class="key outline">↵</span> Search Destiny 2
+                        </span>
+                    </div>
                 </a>
             </div>
         </div>
